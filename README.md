@@ -6,15 +6,15 @@ A workshop on drawing at the [Master Media Design](https://www.hesge.ch/head/en/
 
 ## Projects
 Here are the current student work-in-progress repositories.
-x
-- [Andres Acosta Blaschitz]()
+
+- [Andres Acosta Blaschitz](https://github.com/blaschitzandres/head-md-future-of-drawing)
 - [Mathis Baltisberger](https://github.com/Mastis3000/head-md1-future-of-drawing)
 - [Leyla Benkais](https://github.com/leyyleyyy/head-md-future-of-drawing)
 - Debjyoti Bhowick
 - [Naomi Blidariu](https://github.com/NaomiBldr/head-md-future_of_drawing)
 - [Ekaterina Bliznyuk](https://github.com/qtxs/head-md-future-of-drawing)
 - [Basile Brun](https://github.com/chap0ng/2023-head-md-future-of-drawing)
-- [Adam Chatir](https://github.com/cybrneon/head-md-future-of-drawing)
+- [Adam Cloud](https://github.com/cybrneon/head-md-future-of-drawing)
 - [Daria Kotova](https://github.com/daria-kotova/head-md-future-of-drawing)
 - [Sarah Meylan](https://github.com/SarahM1236/head-md-future-of-drawing)
 - [Jasmine Molano Correia](https://github.com/JasmineMolanoco/head-md1-futur-of-drawing)
