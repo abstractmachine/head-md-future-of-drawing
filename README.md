@@ -14,7 +14,7 @@ Here are the current student work-in-progress repositories.
 - [Andres Acosta Blaschitz](https://github.com/blaschitzandres/head-md-future-of-drawing)
 - [Mathis Baltisberger](https://github.com/Mastis3000/head-md1-future-of-drawing)
 - [Leyla Benkais](https://github.com/leyyleyyy/head-md-future-of-drawing)
-- Debjyoti Bhowick
+- [Debjyoti Bhowick](https://github.com/Debjyoti001/head-md1-future-of-drawing)
 - [Naomi Blidariu](https://github.com/NaomiBldr/head-md-future_of_drawing)
 - [Ekaterina Bliznyuk](https://github.com/qtxs/head-md-future-of-drawing)
 - [Basile Brun](https://github.com/chap0ng/2023-head-md-future-of-drawing)
