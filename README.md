@@ -36,4 +36,9 @@ This is an incomplete repository. For more information, see the above links to e
 - [form](form/)
 - [presentations](presentations/)
 - [process](process/)
-	- [2023-11-01](process/2023-11-01/)
+
+## Internal Page Links
+- [Future of Drawing](#FutureOfDrawing)
+- Keywords
+- Projects
+- Hierarchy
