@@ -14,7 +14,7 @@ Here are the current student work-in-progress repositories.
 - [Andres Acosta Blaschitz](https://github.com/blaschitzandres/head-md-future-of-drawing)
 - [Mathis Baltisberger](https://github.com/Mastis3000/head-md1-future-of-drawing)
 - [Leyla Benkais](https://github.com/leyyleyyy/head-md-future-of-drawing)
-- [Debjyoti Bhowick](https://github.com/Debjyoti001/head-md1-future-of-drawing)
+- [Debjyoti Bhowmick](https://github.com/Debjyoti001/head-md1-future-of-drawing)
 - [Naomi Blidariu](https://github.com/NaomiBldr/head-md-future_of_drawing)
 - [Ekaterina Bliznyuk](https://github.com/qtxs/head-md-future-of-drawing)
 - [Basile Brun](https://github.com/chap0ng/2023-head-md-future-of-drawing)
@@ -28,3 +28,11 @@ Here are the current student work-in-progress repositories.
 - [Enzo Seurre](https://github.com/Artemistake/head-md-future-of-drawing)
 - [Lauren Thiel](https://github.com/pensthiel/head-md-future-of-drawing)
 - [Jonas Wolter](https://github.com/ww-wolt/head-md-future-of-drawing)
+
+## Heirarchy
+This is an incomplete repository. For more information, see the above links to each project. Nevertheless, this repository shows a basic layout of a project and containts the following folders:
+
+- electronics
+- form
+- presentations
+- [process](process/)
