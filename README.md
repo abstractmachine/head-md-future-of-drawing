@@ -32,7 +32,7 @@ Here are the current student work-in-progress repositories.
 ## Heirarchy
 This is an incomplete repository. For more information, see the above links to each project. Nevertheless, this repository shows a basic layout of a project and containts the following folders:
 
-- electronics
-- form
-- presentations
+- [electronics](electronics/)
+- [form](form/)
+- [presentations](presentations/)
 - [process](process/)
