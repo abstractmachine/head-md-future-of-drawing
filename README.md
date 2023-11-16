@@ -38,7 +38,7 @@ This is an incomplete repository. For more information, see the above links to e
 - [process](process/)
 
 ## Internal Page Links
-- [Future of Drawing](#FutureOfDrawing)
+- [Future of Drawing](#Future Of Drawing)
 - Keywords
 - Projects
 - Hierarchy
