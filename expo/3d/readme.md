@@ -8,4 +8,4 @@ Here is a list of the current 3D modelling files for the exhibition
 - [Color Catcher](https://github.com/)
 - [Magic House](https://github.com/pensthiel/head-md-future-of-drawing/tree/main/expo/3d)
 - [Trame Tram Trame](https://github.com/)
-- [Suètone](https://github.com/chap0ng/2023-head-md-future-of-drawing/)
+- [Suètone](https://github.com/chap0ng/2023-head-md-future-of-drawing/tree/main/expo/3D)
