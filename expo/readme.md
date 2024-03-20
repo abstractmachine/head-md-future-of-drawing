@@ -23,3 +23,10 @@ Four project have been prepared for the exhibition. Here is their project reposi
 - [...]()
 - [...]()
 - [...]()
+
+## 3D Files
+Here is the current workingw folder for all the 3D modelling
+- [...]()
+- [Suètone](https://github.com/chap0ng/2023-head-md-future-of-drawing/tree/main/expo/3d)
+- [...]()
+- [...]()
