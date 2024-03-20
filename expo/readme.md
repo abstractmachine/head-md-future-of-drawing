@@ -19,14 +19,14 @@
 ## Projects
 Four project have been prepared for the exhibition. Here is their project repositories:
 
-- [...]()
-- [...]()
-- [...]()
+- [Magic House](https://github.com/pensthiel/head-md-future-of-drawing/)
+- [Suètone](https://github.com/chap0ng/2023-head-md-future-of-drawing/)
+- [Trame Tram Trame](https://github.com/Mastis3000/head-md-drawing-futures)
 - [...]()
 
 ## 3D Files
-Here is the current workingw folder for all the 3D modelling
-- [...]()
+Here is the current working folder for all the 3D modelling
+- [Magic House](https://github.com/pensthiel/head-md-future-of-drawing/tree/main/expo/3d)
 - [Suètone](https://github.com/chap0ng/2023-head-md-future-of-drawing/tree/main/expo/3d)
-- [...]()
+- [Trame Tram Trame](https://github.com/Mastis3000/head-md-drawing-futures)
 - [...]()
