@@ -22,11 +22,11 @@ Four project have been prepared for the exhibition. Here is their project reposi
 - [Magic House](https://github.com/pensthiel/head-md-future-of-drawing/)
 - [Suètone](https://github.com/chap0ng/2023-head-md-future-of-drawing/)
 - [Trame Tram Trame](https://github.com/Mastis3000/head-md-drawing-futures)
-- [...]()
+- [Color Catcher](https://github.com/SarahM1236/head-md-future-of-drawing/)
 
 ## 3D Files
 Here is the current working folder for all the 3D modelling
+- [Color Catcher](https://github.com/SarahM1236/head-md-future-of-drawing/tree/main/expo/3d)
 - [Magic House](https://github.com/pensthiel/head-md-future-of-drawing/tree/main/expo/3d)
 - [Suètone](https://github.com/chap0ng/2023-head-md-future-of-drawing/tree/main/expo/3d)
 - [Trame Tram Trame](https://github.com/Mastis3000/head-md-drawing-futures/tree/main/expo/3d)
-- [...]()
