@@ -7,3 +7,9 @@ A selection of these projects will be exhibited in May 2024.
 
 ## Keywords
 drawing, writing, drawing tools, writing tools, artificial intelligence, interaction design, storytelling objects, novel interactions, playable objects
+
+## Exposition
+An exhibition is current in preparation for the [Espace créatif Caran d’Ache](), May 14-24, 2024. Here is a link to the exhibition process folder: [expo](/expo/)
+
+## Presskit
+A presskit is currently in preparation: [presskit](/press/)
