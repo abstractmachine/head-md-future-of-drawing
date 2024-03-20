@@ -28,5 +28,5 @@ Four project have been prepared for the exhibition. Here is their project reposi
 Here is the current working folder for all the 3D modelling
 - [Magic House](https://github.com/pensthiel/head-md-future-of-drawing/tree/main/expo/3d)
 - [Suètone](https://github.com/chap0ng/2023-head-md-future-of-drawing/tree/main/expo/3d)
-- [Trame Tram Trame](https://github.com/Mastis3000/head-md-drawing-futures)
+- [Trame Tram Trame](https://github.com/Mastis3000/head-md-drawing-futures/tree/main/expo/3d)
 - [...]()
