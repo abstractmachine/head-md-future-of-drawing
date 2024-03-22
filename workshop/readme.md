@@ -1,8 +1,15 @@
 # Workshop
-This is an archive of the first-semester work of this project.
+"The Future of Drawing" was a workshop held at the [Master Media Design](https://www.hesge.ch/head/en/programs-research/master-arts-media-design), [HEAD – Genève](http://head-geneve.ch) in collaboration with [Caran d'ache](https://www.carandache.com/ch/en) from October 2023 to January 2024. 17 prototypes were developped, from which four projects were selected and will be exhibited in May 2024 at the [Espace créatif Caran d’Ache](https://plateforme10.ch/espace-creatif-caran-dache/), Plateforme 10, Laussane (cf. [expo](../expo/)).
+
+This is an archive of that first-semester work on this project.
+
+## Goals
+In this workshop we are prototyping new and intruiging ideas around drawing, drawing tools, writing, and writing tools, in an age of artificial intelligence. This project is the semester project of the [Media Design Master](https://www.hesge.ch/head/en/programs-research/master-arts-media-design) program of the [HEAD – Genève](http://head-geneve.ch).
+
+A selection of these projects will be exhibited in May 2024.
 
 ## Projects
-Here are the current student work-in-progress repositories.
+Here are the student work-in-progress repositories.
 
 - [Andres Acosta Blaschitz](https://github.com/blaschitzandres/head-md-future-of-drawing)
 - [Mathis Baltisberger](https://github.com/Mastis3000/head-md1-future-of-drawing)
