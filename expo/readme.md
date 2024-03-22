@@ -3,7 +3,7 @@
 
 - Exhibition
 - Une collaboration Master Media Design, HEAD – Genève & Caran d’Ache
-- [Espace créatif Caran d’Ache](https://plateforme10.ch/espace-creatif-caran-dache/), [Plateforme 10](https://plateforme10.ch/), Lausanne, 
+- [Espace créatif Caran d’Ache](https://plateforme10.ch/espace-creatif-caran-dache/), [Plateforme 10](https://plateforme10.ch/), Lausanne
 - Dates:
 	- Du 13 au 24 mai 2024
 	- Rencontre presse (format petit déjeuner) : 9h30, 14 mai 2024

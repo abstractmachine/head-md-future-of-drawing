@@ -1,4 +1,5 @@
-# Future of Drawing
+# Drawing Futures
+Drawing Futures is a collaboration between the [Master Media Design](https://www.hesge.ch/head/formations-recherche/master-en-media-design), [HEAD – Genève](https://www.hesge.ch/head/) & [Caran d’Ache](https://www.carandache.com/ch/en/)
 
 ## Keywords
 drawing, writing, drawing tools, writing tools, playful interactions, interaction design, storytelling objects, novel interactions, playable objects, artificial intelligence
