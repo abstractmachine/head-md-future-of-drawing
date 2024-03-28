@@ -121,46 +121,54 @@ Mathis Baltisberger a suivi sa formation à la haute école d’art de Genève. 
 Naomi Blidariu est une illustratrice genevoise, récemment diplômée d’un bachelor en communication visuelle en option image/récit à la HEAD. Son intérêt se déploie autant dans le domaine médiatique que sur des supports traditionnels. Que ce soit pour la conception de jeux vidéo dans le cadre de ses études, d’identités visuelles d'événements comme PolyLAN ou de dessin de presse pour le numéro spécial de “la HEAD dessine la Tribune de Genève”.
 
 ### Basile Brun
-<basil.brun@hes-so.ch>
-https://www.instagram.com/chap0ng/>
-<https://www.linkedin.com/in/basile-brun-76a5732ba/>
+- <basil.brun@hes-so.ch>
+- <https://www.instagram.com/chap0ng/>
+- <https://www.linkedin.com/in/basile-brun-76a5732ba/>
+
 Basile Brun, formé à la Haute École d’Art et de Design de Genève, est artiste, illustrateur et compositeur. Il arpente les réseaux sociaux et présente ses travaux sous divers pseudonymes tels que Chap0ng ou Oh Deer. Le cœur de sa pratique réside dans la réalisation d’animations et films expérimentaux. Il travaille notamment sur les questions de pratiques sonores dans les mondes 3D ainsi que sur diverses installations génératives. En parallèle de sa pratique de vidéaste, il travaille sur un jeu vidéo, ses illustrations ainsi que sur ses multiples projets musicaux.
 
 ### Sarah Meylan
-<sarah.meylan@hes-so.ch>
-<https://www.instagram.com/sarah.meylan/>
-<https://linkedin/in/sarahmeylan>
+- <sarah.meylan@hes-so.ch>
+- <https://www.instagram.com/sarah.meylan/>
+- <https://linkedin/in/sarahmeylan>
+
 Étudiante en Master Média Design et diplômée d’un Bachelor en Communication Visuelle, Sarah Meylan est une designer qui souhaite évoluer dans l’interaction afin de relever de nouveaux défis technologiques et sociaux. Curieuse dans plusieurs domaines tels que le design génératif et spéculatif, la psychologie, le biomimétisme et la science, elle souhaite pouvoir par la suite mélanger technologie et nature dans sa pratique.
 
 ### Lauren Thiel
-<lauren.thiel@hes-so.ch>
-<https://www.instagram.com/pensthiel/>
+- <lauren.thiel@hes-so.ch>
+- <https://www.instagram.com/pensthiel/>
+
 Lauren Thiel est étudiante à la HEAD au Master Media Design. Avant cela, elle a étudié la conception multimédia en CFC, puis la bande dessinée et l’illustration. Elle travaille sur de nombreux supports avec différents médias, notamment l’animation. Elle a produit quelques courts métrages de styles divers, dont un surnommé « L’île du vent », qui a été sélectionné au festival d’animation de Savigny ainsi qu’au festival Animatou de Genève.
 
 ## Team Biographies
 
 ### Alexia Mathieu
-<alexia.mathieu@hesge.ch>
-<https://www.hesge.ch/head/annuaire/alexia-mathieu>
+- <alexia.mathieu@hesge.ch>
+- <https://www.hesge.ch/head/annuaire/alexia-mathieu>
+
 Alexia Mathieu is a UX researcher and design strategist. Her work focuses on user research for interactive products and services, merging human-behavior, cultural and business insights to prototype alternative futures. For the past 7 years, Alexia has led design strategies for several interactive products at New Deal Design in San Francisco, working closely with start-ups, engineers and designers. She also worked at Crispin Porter + Bogusky in Boulder, Colorado and London where she created digital storytelling platforms for brands. Since September 2017, Alexia has been the Head MA Media Design program at HEAD – Genève. With a BA in textile design from La Cambre and an MA in Material Futures from Central Saint Martins UAL London, Alexia has built a multi-disciplinary background from interaction design, textile design to advertising. She is currently leading a research project on the narrative potential of digital fashion at HEAD – Genève.
 
 ### Douglas Edric Stanley
-<douglas.stanley@hesge.ch>
-<https://abstractmachine.net/>
+- <douglas.stanley@hesge.ch>
+- <https://abstractmachine.net/>
+
 Douglas Edric Stanley is an American-born artist working principally in the field of new media where he explores the complex intersections of algorithms and æsthetics. At once artist, designer, researcher, curator, developer, and theoretician, he documents the means by which various disciplines are progressively being transformed by the algorithmisation of the world. Active in the scene of video games and experimental forms of play, he co-founded with Antonin Fourneau the hydra-monster otherwise known as ENIAROF. His current research is concerned with writing systems and the manner in which playable non-linear narratives can model the real. Douglas Edric Stanley has organized numerous workshops related to creative coding and experimental game design for museums, non-profits, universities, and art schools. As an artist, he has participated in several exhibitions related to digital art. 
 
 ### Félicien Goguey
 - <input@felicien.io>
 - <https://felicien.io>
+
 Félicien Goguey is a media artist and interaction designer who lives and works in Geneva, Switzerland. He explores the creative potential of programming languages and new technologies with a preference for open-source tools to create interactive installations, live performances, applications and connected objects. His main interests lie in communication networks and their imperceptibility, more precisely in the factors responsible for their imperceptibility and the invisible mechanisms that a user encounters, as well as their political and social consequences. His work involves design methods that question or develop strategies to tackle these issues. Among other subjects, his research tackles mass surveillance conducted within the Internet and mobile phone networks by governmental entities (intelligence services, police, army) and the relations between monitored spaces and their users. He holds a PhD from École Polytechnique Fédérale de Lausanne (EPFL) in the “Architecture and Sciences of the City” doctoral program in partnership with HEAD – Genève (HES-SO), for which he developed a practice-based research focused on one specific object: the IMSI catcher, a monitoring device that intercepts mobile phones identity and data by mimicking the activity of a cell tower. Félicien Goguey is currently Interim Head MA Media Design program at HEAD – Genève.
 
 ### Laure Krayenbühl
 - <https://a-projectstudio.ch/>
+
 a-project studio is a Swiss-based design and interior architecture practice founded by Laure Krayenbühl in 2018. Graduating from the écal in 2009, Laure worked for 7 years as a product designer and project manager at atelier oï before starting to work independently and founding her own studio. The studio designs a wide range of objects and furniture as well as temporary or long-lasting projects for residential and commercial interiors. Teams of experts are put together to answer challenges such as the interior refit of a sailing yacht, the design of heritage-inspired furniture or the development of electronic products, for one-off or serial productions. Among others, the studio counts projects for brands such as BMW Switzerland and USM Modular Furniture. The studio’s versatile identity is reflective of Laure’s childhood in different countries, and of her interest for human-centered projects, cultural identities and material and production processes.
 
 ### Pierre Rossel
 - <pierre.rossel@hesge.ch>
 - <https://www.hesge.ch/head/annuaire/pierre-rossel>
+
 In 2002, Pierre Rossel joined the Haute école d’arts appliqués, now known as the Haute école d’art et de design, HEAD – Genève. First as part of the Immédiat postgraduate programme and then the School of Visual Communications, as well as the Media Design Master. Pierre teaches programming and electronics, participates in carrying out mandates, applied research and development projects. He also provides technical support to graduates and develops student projects for exhibitions.
 
 ## Master Media Design
