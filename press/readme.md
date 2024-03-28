@@ -113,11 +113,11 @@ At the end of the experiment, the user will be able to retrieve their personaliz
 ## Designer Biographies
 
 ### Mathis Baltisberger
-<mathis.baltisbe@hes-so.ch>
+- <mathis.baltisbe@hes-so.ch>
 Mathis Baltisberger a suivi sa formation à la haute école d’art de Genève. Sa pratique s’articule autour du design sonore et de la programmation audiovisuelle. Sans cesse à la recherche de nouveaux outils à s’approprier, il désire évoluer dans ce vaste univers qu’est le design de nouveaux médias.
 
 ### Naomi Blidariu
-<naomi.blidariu@hes-so.ch>
+- <naomi.blidariu@hes-so.ch>
 Naomi Blidariu est une illustratrice genevoise, récemment diplômée d’un bachelor en communication visuelle en option image/récit à la HEAD. Son intérêt se déploie autant dans le domaine médiatique que sur des supports traditionnels. Que ce soit pour la conception de jeux vidéo dans le cadre de ses études, d’identités visuelles d'événements comme PolyLAN ou de dessin de presse pour le numéro spécial de “la HEAD dessine la Tribune de Genève”.
 
 ### Basile Brun
