@@ -16,7 +16,7 @@ with Laure Krayenbühl, Arnaud Pfeiffer, Douglas Edric Stanley
 ### Vernissage
 18h00, 14 May 2024
 
-## Designers
+## Featured Designers
 Mathis Baltisberger, Naomi Blidariu, Basile Brun, Sarah Meylan, Lauren Thiel
 
 ### Team
@@ -36,8 +36,8 @@ Andres Acosta Blaschitz, Ares Pedroli, Naomi Blidariu, Basile Brun, Adam Chatir,
 ### Technical Pools
 Alexandre Simian, Chloé Michel, Clément Schlemmer, Frédéric Butor-Blamont, Isabelle Schnederle, Sébastien Pitteloud, Vytas Jankauskas, Xavier Plantevin
 
-## Exhibition Concept
-Drawing Futures is an exhibition that merges traditional creative practices with emerging technologies, envisioning a future where creativity flourishes through hybrid solutions. It begins with color, to which we add movement, collaboration, storytelling, and music — resulting in a playful combination in which analog and digital forms joyfully collide.
+## Concept
+Drawing Futures is an exhibition that merges traditional creative practices with emerging technologies, envisioning a future where creativity flourishes through hybrid solutions. It begins with color, to which we add movement, collaboration, music, and storytelling — resulting in a playful combination in which analog and digital forms joyfully collide.
 
 ### What We Created
 For this exhibition, our aim was to craft playful AI creative assistants. The element of playfulness served as a catalyst for inspiration, encouraging individuals to broaden their artistic horizons. Leveraging the rich offerings of Caran d’Ache tools, we conceived a new breed of interactive objects.
@@ -56,44 +56,14 @@ Throughout this project, we asked ourselves the following questions:
 By novel combinations we mean juxtaposing simple materials in unexpected ways. This can be achieved by taking complex and misunderstood technologies and integrating them into familiar technologies or gestures — thereby simplifying their complexity through the poetics of well-understood mechanisms or materials.
 
 ### Finding Common Ground
-For this exhibition, the first semester students of the Media Design Master programme of HEAD – Genève collaborated with Caran d’Ache, a renowned Swiss company specializing in a wide range of writing and drawing instruments. Although the world of Caran d’Ache may initially appear distinct from digital design practices, a closer examination reveals a significant connection. Writing and storytelling, for example, serve as foundational elements for digital practices, whether it involves composing algorithms to generate poetry or experimenting with drawing machines.
+For this exhibition, the first semester students of the Media Design Master, HEAD – Genève collaborated with Caran d’Ache, a renowned Swiss company specializing in a wide range of writing and drawing instruments. Although the world of Caran d’Ache may initially appear distinct from digital design practices, a closer examination reveals a significant connection. Writing and storytelling, for example, serve as foundational elements for digital practices, whether it involves composing algorithms to generate poetry or experimenting with drawing machines.
 
 ### Prototypes
-The principal working method of the Media Design Master programme uses a combination of field research, rapid prototyping, user journey studies, and technological development. In the field research phase, students explored various hypotheses using field observations, data collection, and user studies in order to develop their central concept. From this phase, we added rapid prototyping methodologies and experimental playtesting in order to further discover the core interactions and goals of each project. In parallel, students learned new methods and technologies related to electronics, programming, and industrial design and started integrating them into each project as it evolved.
+The principal working method of the Media Design Master programme uses a combination of field research, rapid prototyping, user journey studies, and technological development. In the field research phase, students explored various hypotheses using field observations, data collection, and user studies in order to develop their central concept around drawing futures. From this phase, we added rapid prototyping methodologies and experimental playtesting in order to further discover the core interactions and goals of each project. In parallel, students learned new methods and technologies related to electronics, programming, and industrial design and started integrating them into each project as it evolved.
 
 In January 2024, the Media Design Master students presented seventeen prototypes related to the “Future of Drawing”, along with methodological and technological documentation of each project. From these early demos and prototypes, four projects were selected for further development for the exhibition “Drawing Futures” at the Espace créatif Caran d’Ache, Plateforme 10.
 
 ## Project Descriptions
-
-### Magic House
-Lauren Thiel
-
-- pastels, frame-by-frame image capture, projection, onion-skinning, automated animation
-
-Magic House automates the analogue animation process. At the center of the room sits a large collective drawing surface. On this surface lives Magic House, an animation capturing device that turns individual drawings into a collective animated film. The installation bridges individual creativity with a collective journey, revealing the hidden movement within static shapes and forms.
-
-Magic House simplifies the complex process of traditional frame-by-frame animation. With its playful form and innovative projection system, Magic House helps animators to see the previous frames of their emerging story and easily augment each previous drawing with their next frame of animation. As visitors continue to add new drawings, paintings, and illustrations to the collective surface, the room projects the animated results in an endlessly looping projection.
-
-
-### Suètone
-Basile Brun
-
-- markers, drawing tools, color detection, music box, generative music
-
-Suètone is a generative music box that transforms your drawings into musical partitions. Like a musical stone, Suètone generates melodic patterns as drawings flow around it like a stream of colors: an infinitely evolving musical texture, a sonic journey down the colorstream.
-
-Suètone travels with a series of drawing tools that work in conjunction as creative assistants, opening up new vectors of shape and line for even greater musical opportunities. By moving these assistants around the drawings, artists can explore new visual and musical expressions.
-
-
-### Trame Tram Trame
-Mathis Baltisberger & Naomi Blidariu
-
-- color markers, marker dispenser, collaborative drawing, color detection, generative storytelling
-
-Trame Tram Trame is an experience designed to inspire the illustration of collaborative stories. In a playful inversion of traditional roles, here it is the machine that prompts the human, guiding them down unexpected paths of storytelling possibilities. What unfolds is an adventure in which each participant adds their personal touch to a narrative tapestry that gradually reveals itself, like a river of ink ever expanding across the page.
-
-Trame Tram Trame is an interactive system that combines traditional drawing, interactive electronics, and artificial intelligence into a combined collaborative storytelling device.
-
 
 ### Color Catcher
 Sarah Meylan
@@ -104,13 +74,38 @@ Sarah Meylan
 
 Color Catcher is a playful color grabber that allows the user to create their own Caran d’Ache Luminance 6901® palette by using curiosity as their guide. It is both a toy and tool that uses play as a means to facilitate the creative process. By allowing the detection of colors that are invisible to the naked eye, Color Catcher encourages the player to physically move all around the room to discover colors in a game of sound and vibration.
 
-A strong color palette can powerfully transform any creative project. And yet, choosing colors that complement each other in unique and compelling ways can be a daunting task. With Color Catcher, the player explores the possible interactions with the object to capture an unexpected color palette.
+A strong color palette can powerfully transform any creative project. And yet choosing colors that complement each other in unique and compelling ways can be a daunting task. With Color Catcher, the player explores the object’s interactive potential in order to capture an unexpected color palette.
 
-At the end of the experiment, the user will be able to retrieve their personalized palette of colors generated during gameplay, with indexed references to Caran d’Ache.
+At the end of the experience, the user will be able to retrieve their personalized palette of colors generated during gameplay, including indexed references to Caran d’Ache.
 
+### Magic House
+Lauren Thiel
 
+- pastels, paint, markers, frame-by-frame image capture, projection, onion-skinning, automated animation
 
-## Designer Biographies
+Magic House automates the analogue animation process. At the center of the room sits a large collective drawing surface. On this surface lives Magic House, an animation capturing device that turns individual drawings into a collective animated film. The installation bridges individual creativity with a collective journey, revealing the hidden movement within static shapes and forms.
+
+Magic House simplifies the complex process of traditional frame-by-frame animation. With its playful form and innovative projection system, Magic House helps animators to see the previous frames of their emerging story and easily augment each previous drawing with their next frame of animation. As visitors continue to add new illustrations to the collective surface, the room projects the animated results in an endlessly looping projection.
+
+### Suètone
+Basile Brun
+
+- markers, drawing tools, color detection, music box, generative music
+
+Suètone is a generative music box that transforms your drawings into musical partitions. Like a musical stone, Suètone generates melodic patterns as drawings flow around it like a stream of colors: an infinitely evolving musical texture; a sonic journey down the colorstream.
+
+Suètone travels with a series of drawing tools that work in conjunction as creative assistants, opening up new vectors of shape and line for even greater musical opportunities. By moving these assistants around the drawings, artists can explore new visual and musical expressions.
+
+### Trame Tram Trame
+Mathis Baltisberger & Naomi Blidariu
+
+- color markers, marker dispenser, collaborative drawing, color detection, generative storytelling
+
+Trame Tram Trame is an experience designed to inspire the illustration of collaborative stories. In a playful inversion of traditional roles, here it is the machine that prompts the human, guiding them down unexpected paths of storytelling possibilities. What unfolds is an adventure in which each participant adds their personal touch to a narrative tapestry that gradually reveals itself, like a river of ink ever expanding across the page.
+
+Trame Tram Trame is an interactive system that combines traditional drawing, interactive electronics, and artificial intelligence into a combined collaborative storytelling device.
+
+## Featured Designer Biographies
 
 ### Mathis Baltisberger
 - <mathis.baltisbe@hes-so.ch>
@@ -169,7 +164,7 @@ a-project studio is a Swiss-based design and interior architecture practice foun
 - <pierre.rossel@hesge.ch>
 - <https://www.hesge.ch/head/annuaire/pierre-rossel>
 
-In 2002, Pierre Rossel joined the Haute école d’arts appliqués, now known as the Haute école d’art et de design, HEAD – Genève. First as part of the Immédiat postgraduate programme and then the School of Visual Communications, as well as the Media Design Master. Pierre teaches programming and electronics, participates in carrying out mandates, applied research and development projects. He also provides technical support to graduates and develops student projects for exhibitions.
+In 2002, Pierre Rossel joined the Haute école d’arts appliqués, now known as the Haute école d’art et de design (HEAD – Genève). First as part of the Immédiat postgraduate programme and then the department of Visual Communication as well as the Media Design Master. Pierre teaches programming and electronics, participates in carrying out mandates, applied research, and development projects. He also provides technical support to graduates and develops student projects for exhibitions.
 
 ## Master Media Design
 ### Creating tomorrow’s connected experiences
