@@ -19,3 +19,10 @@ To test that installation worked:
 ```
 % processing-java
 ```
+
+## Sketch File
+Traditionally, a [Processing](http://processing.net) sketch file has the exact same name as its folder + le extension `.pde`. If you want to create another sketch, create a new folder + text file with the exact same name, but including `.pde` at the end of the filename.
+
+## Run Sketch
+Apparently, you need your root of the currently open VS Code folder to be the `ColorCatcher` folder, and not its parent folder `code`. Then, you select the `Menu` > `View` > `Command Palette` (or `CMD` + `SHIFT` + `P`) to run the sketch. You can run it even faster by directly pressin `CMD` + `SHIFT` + `B`.
+
