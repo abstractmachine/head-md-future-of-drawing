@@ -1,4 +1,5 @@
 # ColorCatcher
+This is code for [Sarah Meylan](https://www.instagram.com/sarah.meylan/)’s [Color Catcher](https://github.com/SarahM1236/head-md-future-of-drawing/tree/main) project. It was designed for the exhibition [Drawing Futures](https://github.com/abstractmachine/head-md-future-of-drawing/tree/main/press) in collaboration with Caran d'Ache at Plateforme 10, Lausanne, May 14-24, 2024.
 
 ## Processing
 We are using [Processing](http://processing.net) classic (Java edition) for this project. We could also have used [P5.js](http://p5js.org) (my personal preference) but Java handles SVG natively very well without any hacks, and given the SVG files Sarah will generate for this project, it's probably for the best. Also, serial communication will be easier to handle (Bluetooth is serial communication) using the old-skool app.
