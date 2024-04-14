@@ -2,23 +2,34 @@
 
 class Planet {
 
-    float x, y, radius;
+    float radius;
+    PShape shape;
 
-    Planet(float x, float y, float radius) {
-        this.x = x;
-        this.y = y;
+    Planet(float radius, String filename) {
         this.radius = radius;
+        shape = loadShape(filename);
     }
 
     // draw the planet
     void draw() {
 
-        colorMode(HSB, 360, 100, 100, 100);
-
-        fill(0, 0, 100, 100);
-        stroke(0, 0, 50, 100);
         strokeWeight(2);
-        circle(x, y, radius * 2);
+
+        pushMatrix();
+        translate(width*0.5,height*0.5);
+
+        // colorMode(HSB, 360, 100, 100, 100);
+        // noFill();
+        // stroke(0);
+        // shape(shape, 100, 100, width, height);
+
+        colorMode(RGB, 255, 255, 255, 255);
+        noFill();
+        stroke(0, 0, 50, 100);
+        
+        circle(0, 0, radius * 2);
+
+        popMatrix();
     }
 
 }

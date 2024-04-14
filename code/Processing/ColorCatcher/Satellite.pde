@@ -3,16 +3,19 @@
 
 enum RocketState {
 	Dead,
-	Hover,
-	Retreat,
-	Attack
+	Targetting,
+	Hovering,
+	Retreating,
+	Attacking
 };
 
 class Satellite {
 
+	int index = -1;
 	float hue, saturation, brightness; // color
+	float proximityDistance = 100;
 
-	PVector satellitePosition, rocketPosition;
+	PVector satellitePosition, rocketPosition, rocketTarget;
 	float satelliteAngle, rocketAngle;
 	float radius, speed, rocketThrust, direction;
 	float xCenter, yCenter;
@@ -21,15 +24,17 @@ class Satellite {
 
 	Satellite(int index) {
 
+		this.index = index;
+
 		satellitePosition = new PVector(0, 0);
 		rocketPosition = new PVector(0, 0);
 
 		// theindex determines the radius of the satellite around the central planet
 		// given the planet's radius is 0.25 of min(width, height), the satellite's radius is 0.25 + the position of the satellite in the array
 		// depending on the number of satellites, the range will be i/10 of the remaining space around the planet (approx 0.5 of min(width, height))
-		float startRadius = 0.4 * min(width, height);
-		float remainingRadius = 0.25 * min(width, height);
-		this.radius = startRadius + (index * (remainingRadius / 10.0));
+		float startRadius = 0.3 * min(width, height);
+		float remainingRadius = 0.2 * min(width, height);
+		this.radius = startRadius + (index * (remainingRadius / float(satelliteCount)));
 
 		this.satelliteAngle = random(360);
 		this.speed = random(0.1, 0.5);
@@ -47,10 +52,7 @@ class Satellite {
 		// therocket position starts as a projection out from center of the planet to the edge of the screen
 		// using the angle of the satellite, the rocket position is calculated as a point on the edge of the screen.
 		// We'll start by placing the rocket at the center
-		this.rocketPosition = new PVector(width * 0.5, height * 0.5);
-		// nowproject out to edge of screen
-		this.rocketPosition.x += (this.radius + (cornerRadius - this.radius)) * cos(radians(this.satelliteAngle));
-		this.rocketPosition.y += (this.radius + (cornerRadius - this.radius)) * sin(radians(this.satelliteAngle));
+		this.rocketPosition = calculateScreenEdgeTarget();
 
 		// setthe angle of the rocket to the angle of the satellite
 		this.rocketAngle = atan2(this.satellitePosition.y - this.rocketPosition.y, this.satellitePosition.x - this.rocketPosition.x);
@@ -58,16 +60,52 @@ class Satellite {
 		// seta random color (only 8 possible hues)
 		hue = random(8) * 45;
 
-		rocketState = RocketState.Hover;
+		rocketState = RocketState.Targetting;
+
+	}
+
+
+	PVector calculateScreenEdgeTarget() {
+		
+		// calculate the radius from center screen to a corner
+		float cornerRadius = sqrt(sq(width * 0.5) + sq(height * 0.5));
+
+		// therocket position starts as a projection out from center of the planet to the edge of the screen
+		// using the angle of the satellite, the rocket position is calculated as a point on the edge of the screen.
+		// We'll start by placing the rocket at the center
+		PVector target = new PVector(width * 0.5, height * 0.5);
+		// nowproject out to edge of screen
+		target.x += (this.radius + (cornerRadius - this.radius)) * cos(radians(this.satelliteAngle));
+		target.y += (this.radius + (cornerRadius - this.radius)) * sin(radians(this.satelliteAngle));
+
+		return target;
 
 	}
 
 
 	void repelRocket() {
+
+		if (rocketState == RocketState.Dead) {
+			println("Can't repel rocket #" + index + " in state " + rocketState);
+			return;
+		}
+
+		rocketState = RocketState.Retreating;
+		rocketTarget = calculateScreenEdgeTarget();
+
 	}
 
 
 	void rocketAttack() {
+
+		if (rocketState == RocketState.Dead || rocketState == RocketState.Targetting) {
+			println("Can't attack with rocket #" + index + " in state " + rocketState);
+			return;
+		}
+
+		rocketState = RocketState.Attacking;
+		rocketTarget = new PVector(width * 0.5, height * 0.5);
+
 	}
 
 
@@ -84,7 +122,9 @@ class Satellite {
 		float distance = dist(this.rocketPosition.x, this.rocketPosition.y, this.satellitePosition.x, this.satellitePosition.y);
 
 		// if the rocket is hovering
-		if (rocketState == RocketState.Hover && distance < 50) {
+		if ((rocketState == RocketState.Hovering || rocketState == RocketState.Targetting) && distance < proximityDistance) {
+			// change state to Hovering if it isn't already
+			rocketState = RocketState.Hovering;
 			// increment angle
 			this.satelliteAngle += this.speed * this.direction;
 			// loop around 360 degrees
@@ -101,40 +141,59 @@ class Satellite {
 
 	void moveRocket() {
 
+		// start by targetting the center of the screen
+		PVector targetPoint = new PVector(width*0.5, height*0.5);
+
 		switch(rocketState) {
 				
 			case Dead:
-				// donothing
+				return;
+
+			case Targetting:
+			case Hovering:
+				targetPoint.x = this.satellitePosition.x;
+				targetPoint.y = this.satellitePosition.y;
 				break;
 
-			case Hover:
-
-				// movetowards the target
-				// calculatethe angle to the target
-				float targetAngle = atan2(this.satellitePosition.y - this.rocketPosition.y, this.satellitePosition.x - this.rocketPosition.x);
-				// calculatethe angle difference
-				float angleDiff = targetAngle - this.rocketAngle;
-				// makesurethe angle difference is between -PI and PI
-				if (angleDiff >	PI) angleDiff -= TWO_PI;
-				if (angleDiff < - PI) angleDiff += TWO_PI;
-				// limitthe angle difference to the maximum turn rate
-				angleDiff = constrain(angleDiff, -0.1, 0.1);
-				// updatethe angle
-				this.rocketAngle += angleDiff;
-				// updatethe position
-				this.rocketPosition.x += cos(this.rocketAngle) * this.rocketThrust;
-				this.rocketPosition.y += sin(this.rocketAngle) * this.rocketThrust;
-
+			case Retreating:
+				targetPoint.x = this.rocketTarget.x;
+				targetPoint.y = this.rocketTarget.y;
+				// if we've reached the target, the rocket is dead
+				if (dist(targetPoint.x, targetPoint.y, this.rocketPosition.x, this.rocketPosition.y) < 20) {
+					rocketState = RocketState.Dead;
+				}
 				break;
 
-			case Retreat:
-				// donothing
-				break;
-
-			case Attack:
+			case Attacking:
+				targetPoint.x = this.rocketTarget.x;
+				targetPoint.y = this.rocketTarget.y;
+				float attackDistance = dist(targetPoint.x, targetPoint.y, this.rocketPosition.x, this.rocketPosition.y);
+				// if we've reached the target, the rocket is dead
+				if (attackDistance < 20) {
+					rocketState = RocketState.Dead;
+				}
+				//println("Rocket #" + index + "\tcurrent position: " + this.rocketPosition + "\tattacking target at:" + targetPoint + "\tdistance:" + attackDistance);
 				break;
 
 		}
+
+		// movetowards the target
+		float targetAngle = 0;
+		// calculatethe angle to the target
+		targetAngle = atan2(targetPoint.y - this.rocketPosition.y, targetPoint.x - this.rocketPosition.x);
+		// calculatethe angle difference
+		float angleDiff = targetAngle - this.rocketAngle;
+		// makesurethe angle difference is between -PI and PI
+		if (angleDiff >	PI) angleDiff -= TWO_PI;
+		if (angleDiff < - PI) angleDiff += TWO_PI;
+		// limitthe angle difference to the maximum turn rate
+		angleDiff = constrain(angleDiff, -0.1, 0.1);
+		// updatethe angle
+		this.rocketAngle += angleDiff;
+		// updatethe position
+		this.rocketPosition.x += cos(this.rocketAngle) * this.rocketThrust;
+		this.rocketPosition.y += sin(this.rocketAngle) * this.rocketThrust;
+
 	}
 
 
@@ -160,6 +219,10 @@ class Satellite {
 
 
 	void drawRocket() {
+
+		if (rocketState == RocketState.Dead) {
+			return;
+		}
 
 		//draw the rocket
 		pushMatrix();
