@@ -17,8 +17,7 @@ void setup() {
 	pixelDensity(2);
 	
 	// instatiate the planet
-	// String filename = "hexagons-2024-04-11_01.svg";
-	String filename = "test.svg";
+	String filename = "planet-001.svg";
 	planet = new Planet(min(width, height) * 0.4, filename);
 
 	// instatiate the satellites

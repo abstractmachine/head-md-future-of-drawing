@@ -8,6 +8,7 @@ class Planet {
     Planet(float radius, String filename) {
         this.radius = radius;
         shape = loadShape(filename);
+        shape.disableStyle();
     }
 
     // draw the planet
@@ -19,10 +20,10 @@ class Planet {
         translate(width*0.5,height*0.5);
 
         shapeMode(CENTER);
-        shape.disableStyle();
         colorMode(HSB, 360, 100, 100, 100);
-        noStroke();
-        fill(0, 0, 0, 100);
+        noFill();
+        stroke(0, 0, 0, 100);
+        strokeWeight(2);
         shape(shape, 0, 0, radius, radius);
 
         popMatrix();
