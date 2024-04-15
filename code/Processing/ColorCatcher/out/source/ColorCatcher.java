@@ -130,6 +130,41 @@ class Planet {
         popMatrix();
     }
 
+    // check if a point is inside the planet
+    public boolean pixelInPoly(PVector[] verts, PVector pos) {
+
+        int i, j;
+        boolean c=false;
+        int sides = verts.length;
+
+        for (i=0,j=sides-1; i<sides; j=i++) {
+            if (( ((verts[i].y <= pos.y) && (pos.y < verts[j].y)) || ((verts[j].y <= pos.y) && (pos.y < verts[i].y))) &&
+            (pos.x < (verts[j].x - verts[i].x) * (pos.y - verts[i].y) / (verts[j].y - verts[i].y) + verts[i].x)) {
+                c = !c;
+            }
+        }
+        return c;
+    }
+
+    // // check if a point is inside the planet
+    // String isInside(PVector pos) {
+        
+    //     for(int i=0; i<shape.getChildCount(); i++) {
+
+    //         PShape child = shape.getChild(i);
+
+    //         PVector[] verts = new PVector[child.getVertexCount()];
+    //         for(int j=0; j<child.getVertexCount(); j++) {
+    //             PVector vert = child.getVertex(j);
+    //             verts[j] = new PVector(vert.x, vert.y);
+    //         }
+
+    //         if(pixelInPoly(verts, pos)) {
+    //             return true;
+    //         }
+    //     }
+    // }
+
 }
 // the Satellite class contains behavior of objects that are satellites spinning around the central planet
 // rockets in the shape of color pencils follow the movements of the satellites
@@ -152,6 +187,9 @@ class Satellite {
 	float satelliteAngle, rocketAngle;
 	float radius, speed, rocketThrust, direction;
 	float xCenter, yCenter;
+	float randomOffset = 0;
+	float wanderStrength = 0.25f;
+	float wanderSpeed = 0.05f;
 
 	RocketState rocketState = RocketState.Dead;
 
@@ -159,21 +197,24 @@ class Satellite {
 
 		this.index = index;
 
+		// to keep each Perlin noise value unique, we'll add a random offset to the index
+		this.randomOffset = random(1000);
+
 		satellitePosition = new PVector(0, 0);
 		rocketPosition = new PVector(0, 0);
 
 		// theindex determines the radius of the satellite around the central planet
 		// given the planet's radius is 0.25 of min(width, height), the satellite's radius is 0.25 + the position of the satellite in the array
 		// depending on the number of satellites, the range will be i/10 of the remaining space around the planet (approx 0.5 of min(width, height))
-		float startRadius = 0.3f * min(width, height);
+		float startRadius = 0.4f * min(width, height);
 		float remainingRadius = 0.2f * min(width, height);
 		this.radius = startRadius + (index * (remainingRadius / PApplet.parseFloat(satelliteCount)));
 
 		this.satelliteAngle = random(360);
-		this.speed = random(0.1f, 0.5f);
+		this.speed = random(1.1f, 1.5f);
 		this.direction = random(1) > 0.5f ? 1 : - 1;
 
-		this.rocketThrust = this.speed * 7.5f;
+		this.rocketThrust = this.speed * 1.5f;
 	}
 
 
@@ -207,7 +248,7 @@ class Satellite {
 		// using the angle of the satellite, the rocket position is calculated as a point on the edge of the screen.
 		// We'll start by placing the rocket at the center
 		PVector target = new PVector(width * 0.5f, height * 0.5f);
-		// nowproject out to edge of screen
+		// now project out to edge of screen
 		target.x += (this.radius + (cornerRadius - this.radius)) * cos(radians(this.satelliteAngle));
 		target.y += (this.radius + (cornerRadius - this.radius)) * sin(radians(this.satelliteAngle));
 
@@ -284,6 +325,7 @@ class Satellite {
 
 			case Targetting:
 			case Hovering:
+
 				targetPoint.x = this.satellitePosition.x;
 				targetPoint.y = this.satellitePosition.y;
 				break;
@@ -311,14 +353,25 @@ class Satellite {
 		}
 
 		// movetowards the target
-		float targetAngle = 0;
 		// calculatethe angle to the target
-		targetAngle = atan2(targetPoint.y - this.rocketPosition.y, targetPoint.x - this.rocketPosition.x);
+		float targetAngle = atan2(targetPoint.y - this.rocketPosition.y, targetPoint.x - this.rocketPosition.x);
 		// calculatethe angle difference
 		float angleDiff = targetAngle - this.rocketAngle;
 		// makesurethe angle difference is between -PI and PI
 		if (angleDiff >	PI) angleDiff -= TWO_PI;
 		if (angleDiff < - PI) angleDiff += TWO_PI;
+
+		switch(rocketState) {
+			case Targetting:
+				// add a little randomness to the targetting using perlin noise
+				this.rocketAngle += map(noise(this.randomOffset + frameCount * wanderSpeed), 0, 1, -wanderStrength, wanderStrength);
+				break;
+			case Hovering:
+				// add a little randomness to the targetting using perlin noise
+				this.rocketAngle += map(noise(this.randomOffset + frameCount * wanderSpeed), 0, 1, -wanderStrength, wanderStrength);
+				break;
+		}
+		
 		// limitthe angle difference to the maximum turn rate
 		angleDiff = constrain(angleDiff, -0.1f, 0.1f);
 		// updatethe angle

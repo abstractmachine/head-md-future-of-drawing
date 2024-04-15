@@ -29,4 +29,39 @@ class Planet {
         popMatrix();
     }
 
+    // check if a point is inside the planet
+    boolean pixelInPoly(PVector[] verts, PVector pos) {
+
+        int i, j;
+        boolean c=false;
+        int sides = verts.length;
+
+        for (i=0,j=sides-1; i<sides; j=i++) {
+            if (( ((verts[i].y <= pos.y) && (pos.y < verts[j].y)) || ((verts[j].y <= pos.y) && (pos.y < verts[i].y))) &&
+            (pos.x < (verts[j].x - verts[i].x) * (pos.y - verts[i].y) / (verts[j].y - verts[i].y) + verts[i].x)) {
+                c = !c;
+            }
+        }
+        return c;
+    }
+
+    // // check if a point is inside the planet
+    // String isInside(PVector pos) {
+        
+    //     for(int i=0; i<shape.getChildCount(); i++) {
+
+    //         PShape child = shape.getChild(i);
+
+    //         PVector[] verts = new PVector[child.getVertexCount()];
+    //         for(int j=0; j<child.getVertexCount(); j++) {
+    //             PVector vert = child.getVertex(j);
+    //             verts[j] = new PVector(vert.x, vert.y);
+    //         }
+
+    //         if(pixelInPoly(verts, pos)) {
+    //             return true;
+    //         }
+    //     }
+    // }
+
 }
