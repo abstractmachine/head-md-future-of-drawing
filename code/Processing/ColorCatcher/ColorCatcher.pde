@@ -3,7 +3,7 @@ int satelliteCount = 10;
 // create an ArrayList<Satellite> to hold all the satellites
 ArrayList<Satellite> satellites = new ArrayList<Satellite>();
 
-boolean showSatellites = true;
+boolean showSatellites = false;
 
 // the central planet
 Planet planet;
@@ -17,22 +17,31 @@ void setup() {
 	pixelDensity(2);
 	
 	// instatiate the planet
-	String filename = "hexagons-2024-04-11_01.svg";
-	planet = new Planet(min(width, height) * 0.25, filename);
+	// String filename = "hexagons-2024-04-11_01.svg";
+	String filename = "test.svg";
+	planet = new Planet(min(width, height) * 0.4, filename);
 
 	// instatiate the satellites
 	for(int i=0; i<satelliteCount; i++) {
 		satellites.add(new Satellite(i));
 	}
 
+	// start with blank background
+	colorMode(RGB, 255, 255, 255, 255);
+	background(210, 255);
+
 }
 
 // main loop
 void draw() {
 	
+	noCursor();
+
 	float hue = map((millis()*0.1) % 1000, 0, 1000, 0, 360);
-	colorMode(HSB, 360, 100, 100);
-	background(hue, 0, 100);
+	colorMode(RGB, 255, 255, 255, 255);
+	noStroke();
+	fill(255,50);
+	rect(-1,-1,width+2,height+2);
 
 	// draw the planet
 	planet.draw();

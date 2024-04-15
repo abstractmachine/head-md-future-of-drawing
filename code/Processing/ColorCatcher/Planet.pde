@@ -18,16 +18,12 @@ class Planet {
         pushMatrix();
         translate(width*0.5,height*0.5);
 
-        // colorMode(HSB, 360, 100, 100, 100);
-        // noFill();
-        // stroke(0);
-        // shape(shape, 100, 100, width, height);
-
-        colorMode(RGB, 255, 255, 255, 255);
-        noFill();
-        stroke(0, 0, 50, 100);
-        
-        circle(0, 0, radius * 2);
+        shapeMode(CENTER);
+        shape.disableStyle();
+        colorMode(HSB, 360, 100, 100, 100);
+        noStroke();
+        fill(0, 0, 0, 100);
+        shape(shape, 0, 0, radius, radius);
 
         popMatrix();
     }

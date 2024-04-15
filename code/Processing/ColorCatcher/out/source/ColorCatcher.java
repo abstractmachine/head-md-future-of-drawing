@@ -20,7 +20,7 @@ int satelliteCount = 10;
 // create an ArrayList<Satellite> to hold all the satellites
 ArrayList<Satellite> satellites = new ArrayList<Satellite>();
 
-boolean showSatellites = true;
+boolean showSatellites = false;
 
 // the central planet
 Planet planet;
@@ -34,22 +34,31 @@ public void setup() {
 	/* pixelDensity commented out by preprocessor */;
 	
 	// instatiate the planet
-	String filename = "hexagons-2024-04-11_01.svg";
-	planet = new Planet(min(width, height) * 0.25f, filename);
+	// String filename = "hexagons-2024-04-11_01.svg";
+	String filename = "test.svg";
+	planet = new Planet(min(width, height) * 0.4f, filename);
 
 	// instatiate the satellites
 	for(int i=0; i<satelliteCount; i++) {
 		satellites.add(new Satellite(i));
 	}
 
+	// start with blank background
+	colorMode(RGB, 255, 255, 255, 255);
+	background(210, 255);
+
 }
 
 // main loop
 public void draw() {
 	
+	noCursor();
+
 	float hue = map((millis()*0.1f) % 1000, 0, 1000, 0, 360);
-	colorMode(HSB, 360, 100, 100);
-	background(hue, 0, 100);
+	colorMode(RGB, 255, 255, 255, 255);
+	noStroke();
+	fill(255,50);
+	rect(-1,-1,width+2,height+2);
 
 	// draw the planet
 	planet.draw();
@@ -111,16 +120,12 @@ class Planet {
         pushMatrix();
         translate(width*0.5f,height*0.5f);
 
-        // colorMode(HSB, 360, 100, 100, 100);
-        // noFill();
-        // stroke(0);
-        // shape(shape, 100, 100, width, height);
-
-        colorMode(RGB, 255, 255, 255, 255);
-        noFill();
-        stroke(0, 0, 50, 100);
-        
-        circle(0, 0, radius * 2);
+        shapeMode(CENTER);
+        shape.disableStyle();
+        colorMode(HSB, 360, 100, 100, 100);
+        noStroke();
+        fill(0, 0, 0, 100);
+        shape(shape, 0, 0, radius, radius);
 
         popMatrix();
     }
@@ -220,7 +225,6 @@ class Satellite {
 
 		rocketState = RocketState.Retreating;
 		rocketTarget = calculateScreenEdgeTarget();
-		println("Rocket #" + index + " retreating to " + rocketTarget);
 
 	}
 
@@ -234,7 +238,6 @@ class Satellite {
 
 		rocketState = RocketState.Attacking;
 		rocketTarget = new PVector(width * 0.5f, height * 0.5f);
-		println("Rocket #" + index + " attacking target at " + rocketTarget);
 
 	}
 
