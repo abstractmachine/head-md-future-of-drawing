@@ -24,6 +24,20 @@ class Planet {
         noFill();
         stroke(0, 0, 0, 100);
         strokeWeight(2);
+
+        // for(int i=0; i<shape.getChildCount(); i++) {
+        //     PShape child = shape.getChild(i);
+        //     // if there is no content
+        //     if (child.getChildCount() == 0) continue;
+        //     //shape(child, 0, 0, radius, radius);
+        //     for(int j=0; j<child.getChildCount(); j++) {
+        //         PShape grandchild = child.getChild(j);
+        //         println(grandchild.getChildCount());
+        //         shape(grandchild, 0, 0, radius, radius);
+        //     }
+        //     //println(child.getChildCount());
+        // }
+
         shape(shape, 0, 0, radius, radius);
 
         popMatrix();

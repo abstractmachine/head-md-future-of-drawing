@@ -58,7 +58,7 @@ class Satellite {
 		// therocket position starts as a projection out from center of the planet to the edge of the screen
 		// using the angle of the satellite, the rocket position is calculated as a point on the edge of the screen.
 		// We'll start by placing the rocket at the center
-		this.rocketPosition = calculateScreenEdgeTarget();
+		this.rocketPosition = calculateScreenEdgeTarget(this.satelliteAngle);
 
 		// setthe angle of the rocket to the angle of the satellite
 		this.rocketAngle = atan2(this.satellitePosition.y - this.rocketPosition.y, this.satellitePosition.x - this.rocketPosition.x);
@@ -71,7 +71,7 @@ class Satellite {
 	}
 
 
-	PVector calculateScreenEdgeTarget() {
+	PVector calculateScreenEdgeTarget(float fromAngle) {
 		
 		// calculate the radius from center screen to a corner
 		float cornerRadius = sqrt(sq(width * 0.5) + sq(height * 0.5));
@@ -97,7 +97,8 @@ class Satellite {
 		}
 
 		rocketState = RocketState.Retreating;
-		rocketTarget = calculateScreenEdgeTarget();
+		// the rocket will retreat to the edge of the screen using its own angle for orientation
+		rocketTarget = calculateScreenEdgeTarget(rocketAngle);
 
 	}
 
