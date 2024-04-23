@@ -15,9 +15,12 @@ void setup() {
 	fullScreen();
 	// hi-res retina mode
 	pixelDensity(2);
+	// anti-aliasing
+	smooth();
 	
 	// instatiate the planet
-	String filename = "planet-001.svg";
+	//String filename = "planet-001.svg";
+	String filename = "planet-001-a.svg";
 	planet = new Planet(min(width, height) * 0.4, filename);
 
 	// instatiate the satellites

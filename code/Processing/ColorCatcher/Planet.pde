@@ -8,7 +8,6 @@ class Planet {
     Planet(float radius, String filename) {
         this.radius = radius;
         shape = loadShape(filename);
-        shape.disableStyle();
     }
 
     // draw the planet
@@ -19,28 +18,35 @@ class Planet {
         pushMatrix();
         translate(width*0.5,height*0.5);
 
-        shapeMode(CENTER);
         colorMode(HSB, 360, 100, 100, 100);
         noFill();
         stroke(0, 0, 0, 100);
+
+        shape.disableStyle();
+        shapeMode(CENTER);
+        
         strokeWeight(2);
+        strokeJoin(ROUND);
 
-        // for(int i=0; i<shape.getChildCount(); i++) {
-        //     PShape child = shape.getChild(i);
-        //     // if there is no content
-        //     if (child.getChildCount() == 0) continue;
-        //     //shape(child, 0, 0, radius, radius);
-        //     for(int j=0; j<child.getChildCount(); j++) {
-        //         PShape grandchild = child.getChild(j);
-        //         println(grandchild.getChildCount());
-        //         shape(grandchild, 0, 0, radius, radius);
-        //     }
-        //     //println(child.getChildCount());
-        // }
-
-        shape(shape, 0, 0, radius, radius);
-
+        shape(shape, 0, 0, 400, 400);
         popMatrix();
+
+        for(int i=0; i<shape.getChildCount(); i++) {
+
+            stroke((360/8*i), 100, 100, 100);
+
+            PShape child = shape.getChild(i);
+            println(child.getKind());
+            shape(child, 0, 0, 400, 400);
+
+            beginShape();
+            for(int j=0; j<child.getVertexCount(); j++) {
+                PVector vert = child.getVertex(j);
+                vertex(vert.x, vert.y);
+            }
+            endShape();
+        }
+
     }
 
     // check if a point is inside the planet
