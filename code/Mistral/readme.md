@@ -8,6 +8,19 @@ Here is the current workflow for training a large language model with your own d
 ## Retraining
 We are using Google Colab servers for the retraining. The training tools are mostly based around Huggingface [Autotrain](https://huggingface.co/autotrain).
 
+Here is the direct Jupyter source code we are running for this retraining:
+http://...
+
+## Data
+Start by downloading the table of values as `data.tsv` from Google Spreadsheet.
+
+## Convert
+Convert the `.tsv` file to `.csv` for training, indentifying the rows and collumns you want :
+
+```
+% 
+```
+
 ## Inferencing
 We are using [Ollama](https://ollama.com) on a 16GB M2 Mac Mini Pro.
 
