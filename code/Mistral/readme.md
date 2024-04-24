@@ -22,10 +22,23 @@ Convert the `.tsv` file to `.csv` for training, indentifying the rows and collum
 ```
 
 ## Inferencing
-We are using [Ollama](https://ollama.com) on a 16GB M2 Mac Mini Pro.
+We are using [Ollama](https://ollama.com) on a 16GB M2 Mac Mini Pro. 
+
+Right click open will allow you to validate program run.
+
+To test Ollama:
+
+```
+% ollama run llama2
+
+```
+We know it worked when you get >>>
 
 ## Repository
 The retrained models are stored on [Huggingface](https://huggingface.co/headmediadesign).
+
+Copy user tocken tramtramtram
+
 
 ## Tutorial
 Cf. [Tutorial: How to convert HuggingFace model to GGUF format](https://github.com/ggerganov/llama.cpp/discussions/2948)
@@ -34,7 +47,30 @@ Cf. [Tutorial: How to convert HuggingFace model to GGUF format](https://github.c
 Actuellement : <https://huggingface.co/headmediadesign/irad-tempete-mistral-2024-04-15>
 
 ### Install Tools
+We re using python 3.10
+
+Make sure you have `brew` and `pip` installed
+
+Make sure `brew`is installed in your path.
+
 These will be needed for Huggingface downloading as well as for conversion to the [GGUF](https://medium.com/@phillipgimmi/what-is-gguf-and-ggml-e364834d241c format).
+
+### Create Downloader
+We are using Python 3.10
+
+`download.py`
+```
+from huggingface_hub import snapshot_download
+
+local_folder = "name-of-the-hugging-face-folder-from-your-traininging"
+model_id="headmediadesign/" + local_folder
+token = "put-your-token-hugging-face-here"
+
+snapshot_download(repo_id=model_id, local_dir=local_folder, token=token, local_dir_use_symlinks=False, revision="main")
+```
+
+### Download Retrained Model
+Run the code below in order to grab all the huggingface training you did above.
 
 ```
 % pip install huggingface_hub
