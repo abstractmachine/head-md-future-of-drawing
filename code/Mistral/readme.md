@@ -55,6 +55,8 @@ Make sure `brew`is installed in your path.
 
 These will be needed for Huggingface downloading as well as for conversion to the [GGUF](https://medium.com/@phillipgimmi/what-is-gguf-and-ggml-e364834d241c format).
 
+We are also using [Visual Studio Code](https://code.visualstudio.com) to prepare our data, as well as to modify the Python downloaders parameters.
+
 ### Create Downloader
 We are using Python 3.10
 
@@ -74,9 +76,9 @@ Run the code below in order to grab all the huggingface training you did above.
 
 ```
 % pip install huggingface_hub
-% python download.py
+% python3  download.py
 % git clone https://github.com/ggerganov/llama.cpp.git
-% pip install -r llama.cpp/requirements.txt
+% pip3 install -r llama.cpp/requirements.txt
 % python llama.cpp/convert.py -h
 ```
 

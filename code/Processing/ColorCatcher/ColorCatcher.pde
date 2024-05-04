@@ -19,8 +19,8 @@ void setup() {
 	smooth();
 	
 	// instatiate the planet
-	//String filename = "planet-001.svg";
-	String filename = "planet-001-a.svg";
+	String filename = "planet-001.svg";
+	// String filename = "planet-001-a.svg";
 	planet = new Planet(min(width, height) * 0.4, filename);
 
 	// instatiate the satellites

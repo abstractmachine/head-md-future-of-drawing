@@ -14,7 +14,6 @@ class Satellite {
 	int index = -1;
 	float hue, saturation, brightness; // color
 	float proximityDistance = 100;
-
 	PVector satellitePosition, rocketPosition, rocketTarget;
 	float satelliteAngle, rocketAngle;
 	float radius, speed, rocketThrust, direction;

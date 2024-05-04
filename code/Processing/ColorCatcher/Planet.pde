@@ -31,12 +31,12 @@ class Planet {
         shape(shape, 0, 0, 400, 400);
         popMatrix();
 
-        for(int i=0; i<shape.getChildCount(); i++) {
+       /* for(int i=0; i<shape.getChildCount(); i++) {
 
             stroke((360/8*i), 100, 100, 100);
 
             PShape child = shape.getChild(i);
-            println(child.getKind());
+            // println(child.getKind());
             shape(child, 0, 0, 400, 400);
 
             beginShape();
@@ -45,7 +45,7 @@ class Planet {
                 vertex(vert.x, vert.y);
             }
             endShape();
-        }
+        }*/
 
     }
 
