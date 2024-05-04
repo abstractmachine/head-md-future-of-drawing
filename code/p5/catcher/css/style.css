@@ -1,0 +1,28 @@
+/* fill full browser window */
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* center the planet */
+#planet-container {
+    z-index: 100;
+    position: absolute;
+    left: calc(50vw - 125px);
+    top: calc(50vh - 125px);
+}
+
+#planet {
+    height: 250px;
+    width: auto;
+}
+
+#planet {
+    stroke-width: 10;
+}
+
+/* the P5 canvas goes behind the planet */
+#p5 canvas {
+    position: absolute;
+    z-index: -1;
+}
