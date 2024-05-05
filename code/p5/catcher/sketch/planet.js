@@ -1,35 +1,104 @@
-let filepaths = ["assets/shape-0.svg"];
-// let filepaths = ['assets/tester.svg'];
 let shapes;
-let planet;
+let planetContainer;
 let planetDimensions = { width: 0, height: 0 };
-let neutralColor = "#D0D0D0";
+let neutralColor = "#d0d0d0";
+let coreColor = "#d0d0d0";
+let svgRect = null;
+let coreRatio = 0.35;
+let filepaths = ["assets/images/shape-0.svg"];
+// let filepaths = ['assets/tester.svg'];
+
+function setupPlanet() {
+
+	loadPlanet(0);
+
+}
+
+
+function planetResized() {
+
+	svgRect = document.getElementById('planet').getBoundingClientRect();
+	
+}
+
 
 function loadPlanet(index) {
 
-	planet = Snap("#planet-container");
+	planetContainer = Snap("#planet-container");
 	snap = Snap.load(filepaths[index], onPlanetLoaded);
 
 }
 
-function checkNeighbours(pathOfIntersection, colorString) {
 
-    // go through all the shapes in the svg
-    planet.selectAll('path').forEach((shape) => {
-        // don't test with yourself
-        if (pathOfIntersection === shape) {
-            return;
-        }
-        let intersectionPath = Snap.path.intersection(pathOfIntersection, shape);
-        if (intersectionPath.length > 0) {
-            
-            console.log(intersectionPath);
-            console.log(colorString);
+function planetReset(index = 0) {
 
-        }
-    });
+	planetIndex = index;
+
+	coreColor = neutralColor.toString();
+
+	// go through all the shapes in the svg
+	planetContainer.selectAll('path').forEach((shape) => {
+		colorPlanetSegment(shape, coreColor)
+	});
+
+	resetCatcher();
 
 }
+
+
+function drawPlanet() {
+
+	if (svgRect == null) {
+		return;
+	}
+
+	// set core colors
+	colorMode(RGB, 255, 255, 255, 255);
+	fill(coreColor);
+	stroke(coreColor);
+	// draw a circle at the center of the planet
+	circle(width * 0.5, height * 0.5, svgRect.width * coreRatio);
+
+}
+
+
+function checkNeighbours(pathOfIntersection, colorString) {
+
+	let result = false;
+
+	// go through all the shapes in the svg
+	planetContainer.selectAll('path').forEach((shape) => {
+
+		// if we already found a neighbor, we can stop
+		if (result) {
+			return;
+		}
+		// don't test with yourself
+		if (pathOfIntersection == shape) {
+			return;
+		}
+		let intersectionPath = Snap.path.intersection(pathOfIntersection, shape);
+		if (intersectionPath.length > 0) {
+
+			let currentColor = shape.node.attributes.fill.value;
+
+			// if the color is the same as neutral, we can color it
+			if (currentColor === neutralColor) {
+				colorPlanetSegment(shape, colorString);
+				// console.log("coloring neighbor");
+				result = true;
+				return;
+			}
+
+		}
+
+	}); // forEach(shape)
+
+	// did we find a neutral neighbor?
+	return result;
+
+}
+
 
 function onPlanetLoaded(data) {
 
@@ -39,18 +108,19 @@ function onPlanetLoaded(data) {
 	g.forEach(function (e) {
 		e.attr({ fill: neutralColor });
 		e.attr({ stroke: neutralColor });
-		e.attr({ strokeWidth: 1 });
+		e.attr({ strokeWidth: 10 });
 		shapes.push(e);
 	});
-	planet.append(data);
+	planetContainer.append(data);
 
-	let childSvg = planet.select("svg");
+	let childSvg = planetContainer.select("svg");
 	if (childSvg) {
 		childSvg.node.id = 'planet';
 		planetDimensions.width = childSvg.node.width.baseVal.value;
 		planetDimensions.height = childSvg.node.height.baseVal.value;
 	}
 
+	planetResized();
 
 }
 
@@ -58,8 +128,6 @@ function onPlanetLoaded(data) {
 function isPointInside(pt) {
 
 	let intersection = null;
-
-	let svgRect = document.getElementById('planet').getBoundingClientRect();
 	
 	// first, get the normalized mouse position inside the svg element
 	let x = (pt.x - svgRect.x) / svgRect.width;

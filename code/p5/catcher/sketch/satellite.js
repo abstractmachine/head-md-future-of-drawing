@@ -37,7 +37,7 @@ class Satellite {
 		// the index determines the radius of the satellite around the central planet
 		// given the planet's radius is 0.25 of min(width, height), the satellite's radius is 0.25 + the position of the satellite in the array
 		// depending on the number of satellites, the range will be i/10 of the remaining space around the planet (approx 0.5 of min(width, height))
-		let startRadius = 0.5 * Math.min(window.innerWidth, window.innerHeight);
+		let startRadius = 0.35 * Math.min(window.innerWidth, window.innerHeight);
 		let remainingRadius = 0.1 * Math.min(window.innerWidth, window.innerHeight);
 		this.radius = startRadius + (index * (remainingRadius / satelliteCount));
 
@@ -49,10 +49,14 @@ class Satellite {
 		this.rocketAngle = 0;
 		this.rocketState = RocketState.Dead;
 
+		this.lastDeadTime = 0;
+		this.maxTimeDead = random(0,3000); // 0 à 3 seconds
+
 	}
 
 
 	createRocket() {
+
 		// calculate the radius from center screen to a corner
 		let cornerRadius = Math.sqrt(Math.pow(window.innerWidth * 0.5, 2) + Math.pow(window.innerHeight * 0.5, 2));
 	
@@ -64,14 +68,23 @@ class Satellite {
 		// set the angle of the rocket to the angle of the satellite
 		this.rocketAngle = Math.atan2(this.satellitePosition.y - this.rocketPosition.y, this.satellitePosition.x - this.rocketPosition.x);
 	
+		this.createColor();
+
+		this.rocketState = RocketState.Targetting;
+
+	}
+
+
+	createColor() {
+
 		// set a random color (only 8 possible hues)
 		this.hue = Math.floor(Math.random() * 8) * 45;
-	
-		this.rocketState = RocketState.Targetting;
+
 	}
 
 
 	calculateScreenEdgeTarget(fromAngle) {
+
 		// calculate the radius from center screen to a corner
 		let cornerRadius = Math.sqrt(Math.pow(window.innerWidth * 0.5, 2) + Math.pow(window.innerHeight * 0.5, 2));
 	
@@ -89,6 +102,7 @@ class Satellite {
 
 
 	repelRocket() {
+
 		if (this.rocketState === RocketState.Dead) {
 			// console.log("Can't repel rocket #" + this.index + " in state " + this.rocketState);
 			return;
@@ -97,10 +111,12 @@ class Satellite {
 		this.rocketState = RocketState.Retreating;
 		// the rocket will retreat to the edge of the screen using its own angle for orientation
 		this.rocketTarget = this.calculateScreenEdgeTarget(this.rocketAngle);
+
 	}
 
 
 	rocketAttack() {
+
 		if (this.rocketState === RocketState.Dead || this.rocketState === RocketState.Targetting) {
 			// console.log("Can't attack with rocket #" + this.index + " in state " + this.rocketState);
 			return;
@@ -110,15 +126,25 @@ class Satellite {
 		this.rocketTarget = {x: window.innerWidth * 0.5, y: window.innerHeight * 0.5};
 
 		// console.log("Rocket #" + this.index + " is attacking");
+
 	}
 
 
 	rocketExplode() {
+
+		// only explode if the rocket is not retreating
+		if (this.rocketState !== RocketState.Retreating) {
+			// create an explosion
+			let explosion = new Explosion(this.rocketPosition.x, this.rocketPosition.y, this.hue, this.saturation, this.brightness);
+			// add the explosion to the array
+			explosions.push(explosion);
+            playSound('explosion');
+		}
+
+
 		this.rocketState = RocketState.Dead;
-		// create an explosion
-		let explosion = new Explosion(this.rocketPosition.x, this.rocketPosition.y, this.hue, this.saturation, this.brightness);
-		// add the explosion to the array
-		explosions.push(explosion);
+		this.lastDeadTime = millis();
+
 	}
 
 
@@ -131,6 +157,7 @@ class Satellite {
 
 
 	moveSatellite() {
+
 		// get the distance of the rocket to this satellite
 		let distance = dist(this.rocketPosition.x, this.rocketPosition.y, this.satellitePosition.x, this.satellitePosition.y);
 
@@ -148,19 +175,35 @@ class Satellite {
 		// the satellite moves in a circle around the center of the screen
 		this.satellitePosition.x = (window.innerWidth * 0.5)  + this.radius * Math.cos(radians(this.satelliteAngle));
 		this.satellitePosition.y = (window.innerHeight * 0.5) + this.radius * Math.sin(radians(this.satelliteAngle));
+
 	}
 
 
 	moveRocket() {
+
 		// start by targeting the center of the screen
 		let targetPoint = {x: window.innerWidth * 0.5, y: window.innerHeight * 0.5};
 
 		switch(this.rocketState) {
+
 			case RocketState.Dead:
+				// should we start up again?
+				if (abs(millis() - this.lastDeadTime) > this.maxTimeDead) {
+					this.createRocket();
+					return;
+				}
 				return;
 
+            case RocketState.Hovering:
+                // from time to time swap out for another color
+                if (random(0, 1) < 0.001) {
+                    this.repelRocket();
+                }
+				targetPoint.x = this.satellitePosition.x;
+				targetPoint.y = this.satellitePosition.y;
+				break;
+
 			case RocketState.Targetting:
-			case RocketState.Hovering:
 				targetPoint.x = this.satellitePosition.x;
 				targetPoint.y = this.satellitePosition.y;
 				break;
@@ -204,9 +247,17 @@ class Satellite {
 		angleDiff = Math.max(Math.min(angleDiff, 0.1), -0.1);
 		// update the angle
 		this.rocketAngle += angleDiff;
+        // temporary speed bump
+        let tempThrust = this.rocketThrust;
+        // if the rocket is retreating or if it is attacking go faster
+        if (this.rocketState === RocketState.Retreating || this.rocketState === RocketState.Attacking) {
+            tempThrust *= 3.0;
+        }
+
 		// update the position
-		this.rocketPosition.x += Math.cos(this.rocketAngle) * this.rocketThrust;
-		this.rocketPosition.y += Math.sin(this.rocketAngle) * this.rocketThrust;
+		this.rocketPosition.x += Math.cos(this.rocketAngle) * tempThrust;
+		this.rocketPosition.y += Math.sin(this.rocketAngle) * tempThrust;
+
 	}
 
 
@@ -222,11 +273,29 @@ class Satellite {
 			// the color has to be converted to a string to be used in the color function
 			let colorString = color(rgb[0], rgb[1], rgb[2]).toString();
 
-			// check if there are any neighboring shapes
-			let neighbors = checkNeighbours(pathOfIntersection, colorString);
+			// check with the current color of the intersection
+            let currentColor = pathOfIntersection.node.attributes.fill.value;
+
+			// if the color is the same as neutral, we can color it
+			if (currentColor === neutralColor) {
+				colorPlanetSegment(pathOfIntersection, colorString);
 			
-			// send to the planet the path of intersection and the color of the satellite
-			colorPlanetSegment(pathOfIntersection, colorString);
+			}
+			else 
+			{
+ 
+				// check if there are any neighboring shapes
+				let neighbors = checkNeighbours(pathOfIntersection, colorString);
+				
+				// if there's weren't any neighbors
+				if (neighbors === false) {
+					console.log("no neighbors")
+					// send to the planet the path of intersection and the color of the satellite
+					// colorPlanetSegment(pathOfIntersection, colorString);
+				}
+
+			}
+
 			// kill the rocket
 			this.rocketExplode();
 

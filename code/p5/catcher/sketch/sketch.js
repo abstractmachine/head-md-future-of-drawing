@@ -8,30 +8,28 @@ let showSatellites = false;
 let satelliteCount = 5;
 //
 let explosions = [];
+let magnets = [];
+let waves = [];
+
+function preload() {
+
+    preloadSounds();
+
+}
 
 function setup() {
 
 	// fullscreen canvas
 	cnv = createCanvas(windowWidth, windowHeight);
 	cnv.parent('#p5');
-	// load the first file from the list of planets
-	loadPlanet(planetIndex);
+
+    setupPlanet();
+    setupSounds();
 
 	colorMode(HSB, 360, 100, 100, 100);
 	background(0,0,0,100);
 
-	// instatiate the satellites
-	for(let i=0; i<satelliteCount; i++) {
-		satellites.push(new Satellite(i));
-	}
-
-	// for each satellite
-	satellites.forEach((satellite) => {
-		// create a rocket
-		satellite.createRocket();
-	});
-
-	noCursor();
+    reset();
 
 }
 
@@ -42,19 +40,37 @@ function windowResized() {
 	// resize canvas
 	resizeCanvas(windowWidth, windowHeight);
 
+    planetResized();
+
+}
+
+
+function reset() {
+
+    // erase everything in the satellite array
+    satellites = [];
+
+	// instatiate the satellites
+	for(let i=0; i<satelliteCount; i++) {
+		satellites.push(new Satellite(i));
+	}
+
+    planetReset();
+    playSound('start');
+    
 }
 
 
 // draw loop
 function draw() {
 
-	noCursor();
-
 	// clear the canvas with a black background with opacity
 	colorMode(RGB, 255, 255, 255, 255);
 	noStroke();
 	fill(0,50);
 	rect(-1,-1,width+2,height+2);
+
+    drawPlanet();
 
 	// for testing purposes
 	// drawAlignement();
@@ -68,25 +84,76 @@ function draw() {
     // draw all the explosions
     explosions.forEach((explosion) => {
 		explosion.draw();
-        // if it's time to get rid of the explosion
-        if (explosion.active === false) {
-            // remove it from the list
-            explosions = explosions.filter((exp) => exp !== explosion);
-            return;
-        }
 	});
+
+    // draw all the waves
+    waves.forEach((wave) => {
+        wave.draw();
+    });
+
+    // draw all magnets
+    magnets.forEach((magnet) => {
+        magnet.draw();
+    });
+
+    removeStragglers();
 	
+}
+
+
+function removeStragglers() {
+
+    // remove all the explosions that are not active
+    explosions = explosions.filter((explosion) => explosion.active === true);
+
+    // remove all the waves that are not active
+    waves = waves.filter((wave) => wave.active === true);
+
+    // remove all the magnets that are not active
+    magnets = magnets.filter((magnet) => magnet.active === true);
+
+}
+
+
+
+function mousePressed() {
+    // start the audio engine on user gesture
+    userStartAudio();
 }
 
 
 function keyPressed() {
 
-	if (keyCode >= 65 && keyCode <= 75) {
-		let index = keyCode - 65;
-		if (index < satellites.length) {
-			satellites[index].rocketAttack();
-		}
-	}
+	// if (keyCode >= 65 && keyCode <= (65+satelliteCount)) {
+	// 	let index = keyCode - 65;
+	// 	if (index < satellites.length) {
+	// 		satellites[index].rocketAttack();
+	// 	}
+	// }
+
+    switch(key) {
+        case 'a': // nw
+            createMagnet('e');
+            break;
+        case 'b': // ne
+            createMagnet('se');     
+            break;
+        case 'c': // w
+            createMagnet('sw');
+            break;
+        case 'd': // e
+            createMagnet('w');
+            break;
+        case 'e': // sw
+            createMagnet('nw');
+            break;
+        case 'f': // se
+            createMagnet('ne');
+            break;
+        default:
+            break;
+    
+    }
 
 	if (keyCode >= 49 && keyCode <= 57) {
 		let index = keyCode - 49;
@@ -94,6 +161,22 @@ function keyPressed() {
 			satellites[index].createRocket();
 		}
 	}
+
+    if (keyCode >= 75 && keyCode <= 90) {
+        let index = keyCode - 75;
+        if (index < satellites.length) {
+            satellites[index].rocketAttack();
+        }
+    }
+
+    if (keyCode == 32) {
+        createWave();
+    }
+
+
+    if (key == 'x') {
+        reset();
+    }
 
 }
 
