@@ -1,17 +1,4 @@
-let catcherIndex = -1;
-let possibleColors = [
-    [0, 100, 100],
-    [60, 100, 100],
-    [90, 100, 100],
-    [120, 100, 100],
-    [180, 100, 100],
-    [210, 100, 100],
-    [240, 100, 100],
-    [270, 100, 100],
-    [300, 100, 100],
-    [330, 100, 100]
-];
-let catcherColors = [];
+let catcherColorIndexes = [];
 
 function resetCatcher() {
 
@@ -20,29 +7,32 @@ function resetCatcher() {
     //catcherSerial.write('\n');
 
     catcherIndex = -1;
-    catcherColors = [];
+    catcherColorIndexes = [];
 
 }
 
 
-function setCatcherColor(r, g, b) {
+function setCatcherColorUsingIndex(colorIndex) {
 
-    catcherIndex = ++catcherIndex % 4;
-
-    if (catcherColors.length <= catcherIndex) {
-        catcherColors.push([r, g, b]);
-    } else {
-        catcherColors[catcherIndex] = [r, g, b];
+    if (catcherColorIndexes.length < 4) {
+        catcherColorIndexes.push(colorIndex);
     }
 
-    // send color code to Catcher
+    // send color code to Catcher device
+
+	// convert hsv to rgb
+    // let colorHue = possibleColors[colorIndex].hue;
+    // let colorSaturation = possibleColors[colorIndex].saturation;
+    // let colorBrightness = possibleColors[colorIndex].brightness;
+	// let rgb = hsvToRgb(colorHue / 360.0, colorSaturation / 100.0, colorBrightness / 100.0);
+    // let r = rgb[0];
+    // let g = rgb[1];
+    // let b = rgb[2];
     //catcherSerial.write('c');
     //catcherSerial.write(catcherIndex.toString());
     //catcherSerial.write(r.toString());
     //catcherSerial.write(g.toString());
     //catcherSerial.write(b.toString());
     //catcherSerial.write('\n');
-
-    console.log(catcherColors);
 
 } 

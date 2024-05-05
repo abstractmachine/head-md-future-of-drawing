@@ -18,6 +18,7 @@ class Satellite {
 
 		this.index = index;
 
+		this.colorIndex = -1;
 		this.hue = 0;
 		this.saturation = 100;
 		this.brightness = 100;
@@ -77,8 +78,25 @@ class Satellite {
 
 	createColor() {
 
-		// set a random color (only 8 possible hues)
-		this.hue = Math.floor(Math.random() * 8) * 45;
+		// if we already have four possible colors, we'll just choose one of those and call it a day
+		if (catcherColorIndexes.length >= 4) {
+			// directly choose one of those colors
+			this.colorIndex = catcherColorIndexes[Math.floor(Math.random() * catcherColorIndexes.length)];
+		} else {
+			// start with a random possible color
+			let nextIndex = Math.floor(Math.random() * possibleColors.length);
+			// make sure we don't already have that color in our list, and that it's not our last color
+			while (nextIndex === this.colorIndex || catcherColorIndexes.includes(nextIndex)) {
+				nextIndex = Math.floor(Math.random() * possibleColors.length);
+			}
+            // so this is our new index
+            this.colorIndex = nextIndex;
+		}
+
+		// set the next color
+		this.hue = possibleColors[this.colorIndex].hue;
+        this.saturation = possibleColors[this.colorIndex].saturation;
+        this.brightness = possibleColors[this.colorIndex].brightness;
 
 	}
 
@@ -138,7 +156,7 @@ class Satellite {
 			let explosion = new Explosion(this.rocketPosition.x, this.rocketPosition.y, this.hue, this.saturation, this.brightness);
 			// add the explosion to the array
 			explosions.push(explosion);
-            playSound('explosion');
+			playSound('explosion');
 		}
 
 
@@ -194,11 +212,11 @@ class Satellite {
 				}
 				return;
 
-            case RocketState.Hovering:
-                // from time to time swap out for another color
-                if (random(0, 1) < 0.001) {
-                    this.repelRocket();
-                }
+			case RocketState.Hovering:
+				// from time to time swap out for another color
+				if (random(0, 1) < 0.001) {
+					this.repelRocket();
+				}
 				targetPoint.x = this.satellitePosition.x;
 				targetPoint.y = this.satellitePosition.y;
 				break;
@@ -247,12 +265,12 @@ class Satellite {
 		angleDiff = Math.max(Math.min(angleDiff, 0.1), -0.1);
 		// update the angle
 		this.rocketAngle += angleDiff;
-        // temporary speed bump
-        let tempThrust = this.rocketThrust;
-        // if the rocket is retreating or if it is attacking go faster
-        if (this.rocketState === RocketState.Retreating || this.rocketState === RocketState.Attacking) {
-            tempThrust *= 3.0;
-        }
+		// temporary speed bump
+		let tempThrust = this.rocketThrust;
+		// if the rocket is retreating or if it is attacking go faster
+		if (this.rocketState === RocketState.Retreating || this.rocketState === RocketState.Attacking) {
+			tempThrust *= 3.0;
+		}
 
 		// update the position
 		this.rocketPosition.x += Math.cos(this.rocketAngle) * tempThrust;
@@ -274,16 +292,14 @@ class Satellite {
 			let colorString = color(rgb[0], rgb[1], rgb[2]).toString();
 
 			// check with the current color of the intersection
-            let currentColor = pathOfIntersection.node.attributes.fill.value;
+			let currentColor = pathOfIntersection.node.attributes.fill.value;
 
 			// if the color is the same as neutral, we can color it
 			if (currentColor === neutralColor) {
 				colorPlanetSegment(pathOfIntersection, colorString);
-			
 			}
 			else 
 			{
- 
 				// check if there are any neighboring shapes
 				let neighbors = checkNeighbours(pathOfIntersection, colorString);
 				

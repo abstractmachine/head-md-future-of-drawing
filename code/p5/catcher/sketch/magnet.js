@@ -108,11 +108,8 @@ class Magnet {
             this.hue = closestSatellite.hue;
             this.saturation = closestSatellite.saturation;
             this.brightness = closestSatellite.brightness;
-			// convert hsv to rgb
-			let rgb = hsvToRgb(this.hue / 360.0, this.saturation / 100.0, this.brightness / 100.0);
-            this.color = color(rgb[0], rgb[1], rgb[2]);
 
-            setCatcherColor(rgb[0], rgb[1], rgb[2]);
+            setCatcherColorUsingIndex(closestSatellite.colorIndex);
 
             // attack with the closest satellite
             closestSatellite.rocketAttack();
