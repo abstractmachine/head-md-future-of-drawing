@@ -134,59 +134,7 @@ function mousePressed() {
 
 function keyPressed() {
 
-	// if (keyCode >= 65 && keyCode <= (65+satelliteCount)) {
-	// 	let index = keyCode - 65;
-	// 	if (index < satellites.length) {
-	// 		satellites[index].rocketAttack();
-	// 	}
-	// }
-
-    switch(key) {
-        case 'a': // nw
-            createMagnet('e');
-            break;
-        case 'b': // ne
-            createMagnet('se');     
-            break;
-        case 'c': // w
-            createMagnet('sw');
-            break;
-        case 'd': // e
-            createMagnet('w');
-            break;
-        case 'e': // sw
-            createMagnet('nw');
-            break;
-        case 'f': // se
-            createMagnet('ne');
-            break;
-        default:
-            break;
-    
-    }
-
-	if (keyCode >= 49 && keyCode <= 57) {
-		let index = keyCode - 49;
-		if (index < satellites.length) {
-			satellites[index].createRocket();
-		}
-	}
-
-    if (keyCode >= 75 && keyCode <= 90) {
-        let index = keyCode - 75;
-        if (index < satellites.length) {
-            satellites[index].rocketAttack();
-        }
-    }
-
-    if (keyCode == 32) {
-        createWave();
-    }
-
-
-    if (key == 'x') {
-        reset();
-    }
+    simulateCatcherWithKeyboard();
 
 }
 
