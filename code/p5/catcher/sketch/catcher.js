@@ -18,6 +18,7 @@ function setCatcherColorUsingIndex(colorIndex) {
         catcherColorIndexes.push(colorIndex);
     }
 
+
     // send color code to Catcher device
 
 	// convert hsv to rgb

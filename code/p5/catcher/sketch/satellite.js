@@ -78,19 +78,43 @@ class Satellite {
 
 	createColor() {
 
+        let nextColorIndex = -1;
 		// if we already have four possible colors, we'll just choose one of those and call it a day
 		if (catcherColorIndexes.length >= 4) {
 			// directly choose one of those colors
 			this.colorIndex = catcherColorIndexes[Math.floor(Math.random() * catcherColorIndexes.length)];
 		} else {
-			// start with a random possible color
-			let nextIndex = Math.floor(Math.random() * possibleColors.length);
+            // we are going to see if this color is already taken
+            let nextIndexAlreadyUsed = true;
 			// make sure we don't already have that color in our list, and that it's not our last color
-			while (nextIndex === this.colorIndex || catcherColorIndexes.includes(nextIndex)) {
-				nextIndex = Math.floor(Math.random() * possibleColors.length);
+			while (nextIndexAlreadyUsed) {
+                // first let choose a random new index from the list of possible colors
+				nextColorIndex = Math.floor(Math.random() * possibleColors.length);
+                // if the index is already in the list of catcherColorIndexes
+                if (catcherColorIndexes.includes(nextColorIndex)) {
+                    continue;
+                }
+                // if this color is our last color, try again
+                if (nextColorIndex === this.colorIndex) {
+                    continue;
+                }
+                // reset the already used flag
+                nextIndexAlreadyUsed = false;
+                // now go through all the satellites and see if this color is already taken
+                satellites.forEach((satellite) => {
+                    // make sure we don't check with ourselves
+                    if (satellite.index === this.index) {
+                        return;
+                    }
+                    // now check if the color is already taken
+                    if (satellite.colorIndex === nextColorIndex) {
+                        nextIndexAlreadyUsed = true;
+                    }
+                });
+                // if after all that, the color is still not taken, we can now use it
 			}
             // so this is our new index
-            this.colorIndex = nextIndex;
+            this.colorIndex = nextColorIndex;
 		}
 
 		// set the next color
