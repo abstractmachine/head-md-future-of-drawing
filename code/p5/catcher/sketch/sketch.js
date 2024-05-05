@@ -10,6 +10,8 @@ let satelliteCount = 5;
 let explosions = [];
 let magnets = [];
 let waves = [];
+// 
+let endgame = false;
 
 function preload() {
 
@@ -76,10 +78,18 @@ function draw() {
 	// drawAlignement();
 
 	// draw all the satellites
-	satellites.forEach((satellite) => {
-		satellite.move();
-		satellite.draw();
-	});
+    if (!endgame) {
+
+        satellites.forEach((satellite) => {
+            satellite.move();
+        });
+
+        // draw all the satellites
+        satellites.forEach((satellite) => {
+            satellite.draw();
+        });
+        
+    }
 
     // draw all the explosions
     explosions.forEach((explosion) => {

@@ -62,6 +62,41 @@ function drawPlanet() {
 }
 
 
+function gameOver() {
+
+    console.log("Game Over!");
+
+    playSound('gameover');
+
+    endgame = true;
+
+}
+
+
+function colorRandomNeighbour(colorString) {
+
+	let result = false;
+
+	// go through all the shapes in the svg
+	planetContainer.selectAll('path').forEach((shape) => {
+
+        let currentColor = shape.node.attributes.fill.value;
+
+        // if the color is the same as neutral, we can color it
+        if (currentColor === neutralColor) {
+            colorPlanetSegment(shape, colorString);
+            // console.log("coloring neighbor");
+            result = true;
+            return;
+        }
+
+    });
+
+    return result;
+
+}
+
+
 function checkNeighbours(pathOfIntersection, colorString) {
 
 	let result = false;

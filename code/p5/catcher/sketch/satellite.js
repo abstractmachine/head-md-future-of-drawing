@@ -329,7 +329,14 @@ class Satellite {
 				
 				// if there's weren't any neighbors
 				if (neighbors === false) {
-					console.log("no neighbors")
+                    // color a random neighbor
+                    let randomAttempt = colorRandomNeighbour(colorString);
+                    // if even that fails
+                    if (randomAttempt === false) {
+                        // end the game
+                        gameOver();
+                    }
+
 					// send to the planet the path of intersection and the color of the satellite
 					// colorPlanetSegment(pathOfIntersection, colorString);
 				}

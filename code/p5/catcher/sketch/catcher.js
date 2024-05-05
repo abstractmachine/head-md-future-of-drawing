@@ -16,6 +16,7 @@ function setCatcherColorUsingIndex(colorIndex) {
 
     if (catcherColorIndexes.length < 4) {
         catcherColorIndexes.push(colorIndex);
+        console.log('catcherColorIndexes: ' + catcherColorIndexes);
     }
 
 

@@ -143,6 +143,9 @@ function createWave() {
     let wave = new Wave();
     waves.push(wave);
 
+    // turn off the endgame
+    endgame = false;
+
     // tell all the satellites to retreat
     satellites.forEach((satellite) => {
         satellite.repelRocket();
