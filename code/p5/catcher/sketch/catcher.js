@@ -2,6 +2,36 @@ let catcherColorIndexes = [];
 
 function simulateCatcherWithKeyboard() {
 
+    // this is the "I want to start over gesture"
+    // either shake like a wet dog, or maybe shake up/down like a soda can
+    if (keyCode == 32) {
+        catcherWaveInput();
+    }
+
+    // these are the six directional movements
+    switch (keyCode) {
+        case 102: // nw
+            catcherGestureInput('e');
+            break;
+        case 99: // ne
+            catcherGestureInput('se');
+            break;
+        case 97: // w
+            catcherGestureInput('sw');
+            break;
+        case 100: // e
+            catcherGestureInput('w');
+            break;
+        case 103: // sw
+            catcherGestureInput('nw');
+            break;
+        case 105: // se
+            catcherGestureInput('ne');
+            break;
+        default:
+            break;
+    }
+
     // these are the six directional movements
     switch (key) {
         case 'a': // nw
@@ -24,13 +54,6 @@ function simulateCatcherWithKeyboard() {
             break;
         default:
             break;
-
-    }
-
-    // this is the "I want to start over gesture"
-    // either shake like a wet dog, or maybe shake up/down like a soda can
-    if (keyCode == 32) {
-        catcherWaveInput();
     }
 
 }
